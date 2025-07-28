@@ -10,12 +10,15 @@ export MIOPEN_FIND_ENFORCE=3
 
 source $PWD/.venv/bin/activate
 python $PWD/main.py --port 48189 --listen 0.0.0.0 \
-    --force-fp16 --fp16-unet --bf16-vae --fp16-text-enc \
+    --fp16-unet --bf16-vae --fp16-text-enc \
     --preview-method taesd \
-    --lowvram --verbose --fast \
-    --use-quad-cross-attention \
+    --lowvram --verbose DEBUG \
+    --tls-keyfile key.pem --tls-certfile cert.pem \
+    --use-split-cross-attention \
+    --disable-smart-memory \
+    --async-offload \
+
     #--use-flash-attention \
     #--use-pytorch-cross-attention \
-    #--use-split-cross-attention \
-    #--tls-keyfile key.pem --tls-certfile cert.pem
+    #--use-quad-cross-attention \
 
