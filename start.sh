@@ -12,13 +12,12 @@ source $PWD/.venv/bin/activate
 python $PWD/main.py --port 48189 --listen 0.0.0.0 \
     --fp16-unet --bf16-vae --fp16-text-enc \
     --preview-method taesd \
-    --lowvram --verbose DEBUG \
+    --novram \
+    --verbose DEBUG \
     --tls-keyfile key.pem --tls-certfile cert.pem \
-    --use-split-cross-attention \
-    --disable-smart-memory \
     --async-offload \
-
-    #--use-flash-attention \
+    --use-flash-attention \
+    #--use-split-cross-attention \
     #--use-pytorch-cross-attention \
     #--use-quad-cross-attention \
 
