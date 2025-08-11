@@ -7,15 +7,15 @@ export HIPDNN_BENCHMARK=1
 export CUDNN_BENCHMARK=1
 export MIOPEN_FIND_MODE=2
 export HSA_OVERRIDE_GFX_VERSION=11.0.0
-export HIP_VISIBLE_DEVICES=0
-export MIOPEN_LOG_LEVEL=5
+export ROCR_VISIBLE_DEVICES=0
+export GPU_DEVICE_ORDINAL=0
 
 
 source $PWD/.venv/bin/activate
 python $PWD/main.py --port 48189 --listen 0.0.0.0 \
-    --fp16-unet --fp16-vae --fp16-text-enc \
+    --fp16-unet --fp16-vae --fp16-text-enc --force-fp16 \
     --preview-method taesd \
-    --lowvram \
+    --novram \
     --verbose DEBUG \
     --tls-keyfile key.pem --tls-certfile cert.pem \
     --async-offload \
