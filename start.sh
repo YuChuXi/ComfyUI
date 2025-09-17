@@ -11,7 +11,6 @@ export ROCR_VISIBLE_DEVICES=0
 export GPU_DEVICE_ORDINAL=0
 
 
-source $PWD/.venv/bin/activate
 python $PWD/main.py --port 48189 --listen 0.0.0.0 \
     --fp16-unet --fp32-vae --fp16-text-enc \
     --preview-method taesd \
