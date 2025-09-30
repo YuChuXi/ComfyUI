@@ -10,17 +10,16 @@ export CUDNN_BENCHMARK=1
 #export ROCR_VISIBLE_DEVICES=0
 #export GPU_DEVICE_ORDINAL=0
 
-# python $PWD/main.py --port 48189 --listen 0.0.0.0 \
-python $PWD/main.py --port 60080 --listen 0.0.0.0 \
-    --fp16-unet --bf16-vae --fp16-text-enc \
+python $PWD/main.py --port 48189 --listen 0.0.0.0 \
     --preview-method taesd \
     --novram \
     --verbose DEBUG \
     --tls-keyfile key.pem --tls-certfile cert.pem \
     --async-offload \
+    $@
+    #--use-split-cross-attention \
     #--use-pytorch-cross-attention \
     #--use-flash-attention \
-    #--use-split-cross-attention \
     #--disable-xformer \
     #--use-quad-cross-attention \
     #--use-sage-attention \
