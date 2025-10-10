@@ -10,17 +10,20 @@ export CUDNN_BENCHMARK=1
 #export ROCR_VISIBLE_DEVICES=0
 #export GPU_DEVICE_ORDINAL=0
 
-python $PWD/main.py --port 48189 --listen 0.0.0.0 \
+export CUDA_LAUNCH_BLOCKING=1
+export TORCH_USE_CUDA_DSA=1
+
+python $PWD/main.py --port 8000 --listen 0.0.0.0 \
     --preview-method taesd \
     --novram \
     --verbose DEBUG \
     --tls-keyfile key.pem --tls-certfile cert.pem \
-    --async-offload \
     $@
+    #--disable-xformer \
+    #--use-flash-attention \
+    #--async-offload \
     #--use-split-cross-attention \
     #--use-pytorch-cross-attention \
-    #--use-flash-attention \
-    #--disable-xformer \
     #--use-quad-cross-attention \
     #--use-sage-attention \
 
