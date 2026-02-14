@@ -17,12 +17,12 @@ python $PWD/main.py --port 48189 --listen 0.0.0.0 \
     --preview-method taesd \
     --verbose DEBUG \
     --tls-keyfile key.pem --tls-certfile cert.pem \
-    --use-sage-attention \
     --async-offload \
+    --use-flash-attention \
     $@
     #--disable-xformer \--novram \
     #--use-quad-cross-attention \
-    #--use-flash-attention \
+    #--use-sage-attention \
     #--use-split-cross-attention \
     #--use-pytorch-cross-attention \
 
